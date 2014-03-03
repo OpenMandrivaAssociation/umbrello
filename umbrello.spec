@@ -13,6 +13,7 @@ Url:		http://www.kde.org
 %define ftpdir stable
 %endif
 Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/%{name}-%{version}.tar.xz
+Source1:	umbrello.rpmlintrc
 BuildRequires:	boost-devel
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(libxml-2.0)
