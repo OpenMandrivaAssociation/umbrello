@@ -1,6 +1,6 @@
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	4.12.2
+Version:	4.12.3
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -13,7 +13,7 @@ Url:		http://www.kde.org
 %define ftpdir stable
 %endif
 Source0:	ftp://ftp.kde.org/pub/kde/%{ftpdir}/%{version}/src/%{name}-%{version}.tar.xz
-Source1:	umbrello.rpmlintrc
+Source10:	umbrello.rpmlintrc
 BuildRequires:	boost-devel
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(libxml-2.0)
@@ -43,6 +43,10 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 %makeinstall_std -C build
 
 %changelog
+* Tue Mar 04 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.3-1
+- New version 4.12.3
+- Add rpmlint filter
+
 * Tue Feb 04 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 1:4.12.2-1
 - New version 4.12.2
 
