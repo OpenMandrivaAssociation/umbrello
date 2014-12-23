@@ -1,6 +1,6 @@
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	14.12.0
+Version:	4.14.3
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -24,8 +24,6 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 
 %files
 %{_kde_bindir}/umbrello
-%{_kde_bindir}/po2xmi
-%{_kde_bindir}/xmi2pot
 %{_kde_applicationsdir}/umbrello.desktop
 %{_kde_appsdir}/umbrello
 %{_kde_iconsdir}/*/*/*/umbrello*
