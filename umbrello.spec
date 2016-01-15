@@ -28,6 +28,7 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 %{_bindir}/xmi2pot
 %{_datadir}/applications/kde4/umbrello.desktop
 %{_datadir}/apps/umbrello
+%{_iconsdir}/hicolor/*/*/*.*[gz]
 %doc %{_docdir}/*/*/umbrello
 
 #----------------------------------------------------------------------------
