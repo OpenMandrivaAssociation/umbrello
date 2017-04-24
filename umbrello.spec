@@ -1,18 +1,13 @@
+%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	16.12.2
+Version:	17.04.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		http://www.kde.org
-%define is_beta %(if test `echo %{version} |cut -d. -f3` -ge 70; then echo -n 1; else echo -n 0; fi)
-%if %{is_beta}
-%define ftpdir unstable
-%else
-%define ftpdir stable
-%endif
-Source0:	http://download.kde.org/%{ftpdir}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Source10:	umbrello.rpmlintrc
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxml-2.0)
@@ -40,13 +35,12 @@ BuildRequires:	cmake(KF5XmlGui)
 Umbrello UML Modeller is a UML diagramming tool for KDE.
 
 %files
-%{_bindir}/umbrello
-%{_bindir}/po2xmi
-%{_bindir}/xmi2pot
-%{_datadir}/applications/org.kde.umbrello.desktop
-%{_datadir}/kxmlgui5/umbrello
+%{_bindir}/umbrello5
+%{_bindir}/po2xmi5
+%{_bindir}/xmi2pot5
+%{_datadir}/applications/org.kde.umbrello5.desktop
 %{_datadir}/metainfo/org.kde.umbrello.appdata.xml
-%{_datadir}/umbrello
+%{_datadir}/umbrello5
 %{_iconsdir}/hicolor/*/*/*.*[gz]
 %doc %{_docdir}/*/*/umbrello
 
