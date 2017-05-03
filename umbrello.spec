@@ -19,6 +19,7 @@ BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Xml)
+BuildRequires:	pkgconfig(Qt5WebKitWidgets)
 BuildRequires:	cmake(KF5Archive)
 BuildRequires:	cmake(KF5Completion)
 BuildRequires:	cmake(KF5Config)
@@ -48,11 +49,11 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 
 %prep
 %setup -q
-
-%build
 sed -i 's/BUILD_UNITTESTS 1/BUILD_UNITTESTS 0/' CMakeLists.txt
 %cmake_kde5 -DBUILD_KF5=1 -DBUILD_UNITTESTS=0
-%ninja
+
+%build
+%ninja -C build
 
 %install
 %ninja_install -C build
