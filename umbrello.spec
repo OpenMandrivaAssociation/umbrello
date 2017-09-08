@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	17.04.2
+Version:	17.08.1
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -35,7 +35,7 @@ BuildRequires:	cmake(KF5XmlGui)
 %description
 Umbrello UML Modeller is a UML diagramming tool for KDE.
 
-%files
+%files -f %{name}.lang
 %{_bindir}/umbrello5
 %{_bindir}/po2xmi5
 %{_bindir}/xmi2pot5
@@ -43,7 +43,6 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 %{_datadir}/metainfo/org.kde.umbrello.appdata.xml
 %{_datadir}/umbrello5
 %{_iconsdir}/hicolor/*/*/*.*[gz]
-%doc %{_docdir}/*/*/umbrello
 
 #----------------------------------------------------------------------------
 
@@ -57,4 +56,4 @@ sed -i 's/BUILD_UNITTESTS 1/BUILD_UNITTESTS 0/' CMakeLists.txt
 
 %install
 %ninja_install -C build
-
+%find_lang %{name} --all-name --with-html
