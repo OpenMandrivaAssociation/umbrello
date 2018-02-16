@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   umbrello-17.12.1.tar.xz: 14780ea42f3c39875fa1b9fdc4d640d35948f999
+sources:
+  umbrello-17.12.2.tar.xz: 911c4638615ca9593acb5da1a16ec21751cce77e
