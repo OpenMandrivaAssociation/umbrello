@@ -9,6 +9,7 @@ License:	GPLv2+
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Source10:	umbrello.rpmlintrc
+Patch0:		umbrello-18.11.90-buildfix.patch
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
@@ -48,7 +49,7 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 #----------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 sed -i 's/BUILD_UNITTESTS 1/BUILD_UNITTESTS 0/' CMakeLists.txt
 %cmake_kde5 -DBUILD_KF5=1 -DBUILD_UNITTESTS=0
 
