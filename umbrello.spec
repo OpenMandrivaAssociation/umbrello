@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	 18.11.90
+Version:	 18.12.0
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -9,7 +9,6 @@ License:	GPLv2+
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 Source10:	umbrello.rpmlintrc
-Patch0:		umbrello-18.11.90-buildfix.patch
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
