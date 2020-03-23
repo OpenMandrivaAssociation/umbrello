@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	19.12.3
+Version:	20.03.80
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -9,6 +9,7 @@ License:	GPLv2+
 Url:		http://www.kde.org
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 Source10:	umbrello.rpmlintrc
+Patch0:		umbrello-20.03.80-llvm-10.patch
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
@@ -49,8 +50,8 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 
 %prep
 %autosetup -p1
-sed -i 's/BUILD_UNITTESTS 1/BUILD_UNITTESTS 0/' CMakeLists.txt
-%cmake_kde5 -DBUILD_KF5=1 -DBUILD_UNITTESTS=0
+# FIXME get rid of -DBUILD_QCH:BOOL=OFF once it's fixed
+%cmake_kde5 -DBUILD_KF5:BOOL=ON -DBUILD_QCH:BOOL=OFF
 
 %build
 %ninja -C build

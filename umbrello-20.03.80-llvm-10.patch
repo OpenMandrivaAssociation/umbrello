@@ -1,0 +1,35 @@
+diff -up umbrello-20.03.80/CMakeLists.txt.omv~ umbrello-20.03.80/CMakeLists.txt
+--- umbrello-20.03.80/CMakeLists.txt.omv~	2020-03-23 23:37:42.878890790 +0100
++++ umbrello-20.03.80/CMakeLists.txt	2020-03-23 23:41:21.658693770 +0100
+@@ -6,6 +6,8 @@ if(POLICY CMP0028)
+     cmake_policy(SET CMP0028 OLD)
+ endif()
+ 
++set(CMAKE_CXX_STANDARD 17)
++
+ # KDE Application Version, managed by release script
+ set (RELEASE_SERVICE_VERSION_MAJOR "20")
+ set (RELEASE_SERVICE_VERSION_MINOR "03")
+diff -up umbrello-20.03.80/unittests/CMakeLists.txt.omv~ umbrello-20.03.80/unittests/CMakeLists.txt
+--- umbrello-20.03.80/unittests/CMakeLists.txt.omv~	2020-03-23 23:41:53.529518174 +0100
++++ umbrello-20.03.80/unittests/CMakeLists.txt	2020-03-23 23:42:47.466220418 +0100
+@@ -181,7 +181,7 @@ if(LLVM_FOUND AND (Clang_FOUND OR CLANG_
+     # Find the libraries that correspond to the LLVM components
+     # that we wish to use
+     if(LLVM_PACKAGE_VERSION VERSION_GREATER_EQUAL "7.0.0")
+-        set(llvm_libs LLVM)
++        set(llvm_libs LLVMSupport LLVMCore LLVMIRReader LLVMAnalysis)
+     else()
+         llvm_map_components_to_libnames(llvm_libs support core irreader analysis)
+     endif()
+diff -up umbrello-20.03.80/unittests/testllvmparser.cpp.omv~ umbrello-20.03.80/unittests/testllvmparser.cpp
+--- umbrello-20.03.80/unittests/testllvmparser.cpp.omv~	2020-03-23 23:47:22.417693636 +0100
++++ umbrello-20.03.80/unittests/testllvmparser.cpp	2020-03-23 23:49:35.311379317 +0100
+@@ -103,6 +103,6 @@ int main(int argc, char **argv)
+             return 1;
+         defaultSource = source.readAll();
+     }
+-    return clang::tooling::runToolOnCode(new FindNamedClassAction, defaultSource.data()) ? 0 : 2;
++    return clang::tooling::runToolOnCode(std::make_unique<FindNamedClassAction>(), defaultSource.data()) ? 0 : 2;
+ }
+ 
