@@ -45,17 +45,26 @@ Umbrello UML Modeller is a UML diagramming tool for KDE.
 %{_datadir}/metainfo/org.kde.umbrello.appdata.xml
 %{_datadir}/umbrello5
 %{_iconsdir}/hicolor/*/*/*.*[gz]
+%doc %{_docdir}/qt5/*.qch
 
 #----------------------------------------------------------------------------
 
 %prep
 %autosetup -p1
-# FIXME get rid of -DBUILD_QCH:BOOL=OFF once it's fixed
-%cmake_kde5 -DBUILD_KF5:BOOL=ON -DBUILD_QCH:BOOL=OFF
+%cmake_kde5 -G Ninja -DBUILD_KF5:BOOL=ON
 
 %build
-%ninja -C build
+%ninja_build -C build
+# FIXME why doesn't ninja do this? It does respect the
+# generated files in the install step...
+cd build
+doxygen Doxyfile.apidoc
 
 %install
 %ninja_install -C build
 %find_lang %{name} --all-name --with-html
+
+# FIXME why does this get installed in the wrong location?
+mkdir -p %{buildroot}%{_docdir}/qt5
+mv %{buildroot}/qch/* %{buildroot}%{_docdir}/qt5/
+rmdir %{buildroot}/qch
