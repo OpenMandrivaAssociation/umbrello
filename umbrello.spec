@@ -33,6 +33,7 @@ BuildRequires:	cmake(KF5TextEditor)
 BuildRequires:	cmake(KF5WidgetsAddons)
 BuildRequires:	cmake(KF5XmlGui)
 BuildRequires:	cmake(KF5KDELibs4Support)
+BuildRequires:	doxygen qt5-assistant
 
 %description
 Umbrello UML Modeller is a UML diagramming tool for KDE.
