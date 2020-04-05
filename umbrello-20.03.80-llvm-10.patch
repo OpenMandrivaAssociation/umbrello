@@ -1,18 +1,18 @@
-diff -up umbrello-20.03.80/CMakeLists.txt.omv~ umbrello-20.03.80/CMakeLists.txt
---- umbrello-20.03.80/CMakeLists.txt.omv~	2020-03-23 23:37:42.878890790 +0100
-+++ umbrello-20.03.80/CMakeLists.txt	2020-03-23 23:41:21.658693770 +0100
-@@ -6,6 +6,8 @@ if(POLICY CMP0028)
-     cmake_policy(SET CMP0028 OLD)
- endif()
+diff -up umbrello-20.03.90/CMakeLists.txt.1~ umbrello-20.03.90/CMakeLists.txt
+--- umbrello-20.03.90/CMakeLists.txt.1~	2020-04-05 18:00:13.328560984 +0200
++++ umbrello-20.03.90/CMakeLists.txt	2020-04-05 18:01:50.468859584 +0200
+@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.8.12 FA
+ 
+ project(umbrello)
  
 +set(CMAKE_CXX_STANDARD 17)
 +
- # KDE Application Version, managed by release script
- set (RELEASE_SERVICE_VERSION_MAJOR "20")
- set (RELEASE_SERVICE_VERSION_MINOR "03")
-diff -up umbrello-20.03.80/unittests/CMakeLists.txt.omv~ umbrello-20.03.80/unittests/CMakeLists.txt
---- umbrello-20.03.80/unittests/CMakeLists.txt.omv~	2020-03-23 23:41:53.529518174 +0100
-+++ umbrello-20.03.80/unittests/CMakeLists.txt	2020-03-23 23:42:47.466220418 +0100
+ if(POLICY CMP0028)
+     cmake_policy(SET CMP0028 OLD)
+ endif()
+diff -up umbrello-20.03.90/unittests/CMakeLists.txt.1~ umbrello-20.03.90/unittests/CMakeLists.txt
+--- umbrello-20.03.90/unittests/CMakeLists.txt.1~	2020-03-28 23:41:36.000000000 +0100
++++ umbrello-20.03.90/unittests/CMakeLists.txt	2020-04-05 18:00:13.328560984 +0200
 @@ -181,7 +181,7 @@ if(LLVM_FOUND AND (Clang_FOUND OR CLANG_
      # Find the libraries that correspond to the LLVM components
      # that we wish to use
@@ -22,9 +22,9 @@ diff -up umbrello-20.03.80/unittests/CMakeLists.txt.omv~ umbrello-20.03.80/unitt
      else()
          llvm_map_components_to_libnames(llvm_libs support core irreader analysis)
      endif()
-diff -up umbrello-20.03.80/unittests/testllvmparser.cpp.omv~ umbrello-20.03.80/unittests/testllvmparser.cpp
---- umbrello-20.03.80/unittests/testllvmparser.cpp.omv~	2020-03-23 23:47:22.417693636 +0100
-+++ umbrello-20.03.80/unittests/testllvmparser.cpp	2020-03-23 23:49:35.311379317 +0100
+diff -up umbrello-20.03.90/unittests/testllvmparser.cpp.1~ umbrello-20.03.90/unittests/testllvmparser.cpp
+--- umbrello-20.03.90/unittests/testllvmparser.cpp.1~	2020-03-28 23:41:36.000000000 +0100
++++ umbrello-20.03.90/unittests/testllvmparser.cpp	2020-04-05 18:00:13.328560984 +0200
 @@ -103,6 +103,6 @@ int main(int argc, char **argv)
              return 1;
          defaultSource = source.readAll();
