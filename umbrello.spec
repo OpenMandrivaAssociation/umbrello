@@ -2,7 +2,7 @@
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
 Version:	20.04.2
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -33,7 +33,12 @@ BuildRequires:	cmake(KF5TextEditor)
 BuildRequires:	cmake(KF5WidgetsAddons)
 BuildRequires:	cmake(KF5XmlGui)
 BuildRequires:	cmake(KF5KDELibs4Support)
-BuildRequires:	doxygen qt5-assistant
+BuildRequires:	cmake(KDevelop-PG-Qt)
+BuildRequires:	cmake(LLVM)
+BuildRequires:	cmake(Clang)
+BuildRequires:	cmake(KDevPlatform)
+BuildRequires:	doxygen
+BuildRequires:	qt5-assistant
 
 %description
 Umbrello UML Modeller is a UML diagramming tool for KDE.
