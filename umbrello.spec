@@ -39,6 +39,8 @@ BuildRequires:	cmake(Clang)
 BuildRequires:	cmake(KDevPlatform)
 BuildRequires:	doxygen
 BuildRequires:	qt5-assistant
+# FIXME can be removed when LLVM cmake files stop referencing it
+BuildRequires:	%{_lib}gpuruntime
 
 %description
 Umbrello UML Modeller is a UML diagramming tool for KDE.
