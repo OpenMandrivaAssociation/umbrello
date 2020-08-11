@@ -39,7 +39,10 @@ BuildRequires:	cmake(Clang)
 BuildRequires:	cmake(KDevPlatform)
 BuildRequires:	doxygen
 BuildRequires:	qt5-assistant
-# FIXME can be removed when LLVM cmake files stop referencing it
+# FIXME can be removed when LLVM cmake files stop referencing them
+BuildRequires:	llvm-mlir-tools
+BuildRequires:	%{_lib}mlir_test_cblas11
+BuildRequires:	%{_lib}mlir_test_cblas_interface11
 BuildRequires:	%{_lib}gpuruntime
 
 %description
