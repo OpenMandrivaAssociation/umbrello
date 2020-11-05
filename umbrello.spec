@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	20.08.2
+Version:	20.08.3
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -74,8 +74,3 @@ doxygen Doxyfile.apidoc
 %install
 %ninja_install -C build
 %find_lang %{name} --all-name --with-html
-
-# FIXME why does this get installed in the wrong location?
-mkdir -p %{buildroot}%{_docdir}/qt5
-mv %{buildroot}/qch/* %{buildroot}%{_docdir}/qt5/
-rmdir %{buildroot}/qch
