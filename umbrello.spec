@@ -41,6 +41,8 @@ BuildRequires:	doxygen
 BuildRequires:	qt5-assistant
 # FIXME can be removed when LLVM cmake files stop referencing them
 BuildRequires:	llvm-mlir-tools
+BuildRequires:	llvm-static-devel
+BuildRequires:	cmake(MLIR)
 BuildRequires:	spirv-llvm-translator
 BuildRequires:	%{_lib}gpuruntime
 BuildRequires:	llvm-bolt
