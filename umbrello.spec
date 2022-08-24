@@ -39,6 +39,8 @@ BuildRequires:	cmake(Clang)
 BuildRequires:	cmake(KDevPlatform)
 BuildRequires:	doxygen
 BuildRequires:	qt5-assistant
+# Not sure why, but building docs wants to translate from CP1250 to UTF-8...
+BuildRequires:	locales-extra-charsets
 # FIXME can be removed when LLVM cmake files stop referencing them
 BuildRequires:	llvm-mlir-tools
 BuildRequires:	llvm-static-devel
