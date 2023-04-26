@@ -1,8 +1,9 @@
-%define stable %([ "`echo %{version} |cut -d. -f3`" -ge 70 ] && echo -n un; echo -n stable)
+%define stable %([ "$(echo %{version} |cut -d. -f3)" -ge 70 ] && echo -n un; echo -n stable)
+
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
 Version:	23.04.0
-Release:	1
+Release:	2
 Epoch:		1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -49,6 +50,10 @@ BuildRequires:	cmake(MLIR)
 BuildRequires:	spirv-llvm-translator
 BuildRequires:	%{_lib}gpuruntime
 BuildRequires:	llvm-bolt
+BuildRequires:	libclc-amdgcn
+BuildRequires:	libclc-nvptx
+BuildRequires:	pkgconfig(libzstd)
+BuildRequires:	cmake(KDevPlatform)
 
 %description
 Umbrello UML Modeller is a UML diagramming tool for KDE.
