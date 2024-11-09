@@ -2,7 +2,7 @@
 
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	24.02.2
+Version:	24.08.3
 Release:	1
 Epoch:		1
 Group:		Graphical desktop/KDE
@@ -21,7 +21,6 @@ BuildRequires:	pkgconfig(Qt5Svg)
 BuildRequires:	pkgconfig(Qt5Test)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Qt5Xml)
-BuildRequires:	pkgconfig(Qt5WebKitWidgets)
 BuildRequires:	cmake(KF5Archive)
 BuildRequires:	cmake(KF5Completion)
 BuildRequires:	cmake(KF5Config)
@@ -33,11 +32,10 @@ BuildRequires:	cmake(KF5KIO)
 BuildRequires:	cmake(KF5TextEditor)
 BuildRequires:	cmake(KF5WidgetsAddons)
 BuildRequires:	cmake(KF5XmlGui)
-BuildRequires:	cmake(KDevPlatform)
-BuildRequires:	cmake(KDevelop-PG-Qt)
+#BuildRequires:	cmake(KDevPlatform)
+#BuildRequires:	cmake(KDevelop-PG-Qt)
 BuildRequires:	cmake(LLVM)
 BuildRequires:	cmake(Clang)
-BuildRequires:	cmake(KDevPlatform)
 BuildRequires:	doxygen
 BuildRequires:	qt5-assistant
 # Not sure why, but building docs wants to translate from CP1250 to UTF-8...
@@ -53,7 +51,6 @@ BuildRequires:	llvm-bolt
 BuildRequires:	libclc-amdgcn
 BuildRequires:	libclc-nvptx
 BuildRequires:	pkgconfig(libzstd)
-BuildRequires:	cmake(KDevPlatform)
 Requires:	kinit
 Requires:	kio
 
