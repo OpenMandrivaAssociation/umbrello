@@ -2,7 +2,7 @@
 
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	26.04.0
+Version:	26.08.0
 Release:	1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
@@ -12,72 +12,46 @@ Source10:	umbrello.rpmlintrc
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(libxslt)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5PrintSupport)
-BuildRequires:	pkgconfig(Qt5Svg)
-BuildRequires:	pkgconfig(Qt5Test)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	pkgconfig(Qt5Xml)
-BuildRequires:	cmake(KF5Archive)
-BuildRequires:	cmake(KF5Completion)
-BuildRequires:	cmake(KF5Config)
-BuildRequires:	cmake(KF5CoreAddons)
-BuildRequires:	cmake(KF5DocTools)
-BuildRequires:	cmake(KF5I18n)
-BuildRequires:	cmake(KF5IconThemes)
-BuildRequires:	cmake(KF5KIO)
-BuildRequires:	cmake(KF5TextEditor)
-BuildRequires:	cmake(KF5WidgetsAddons)
-BuildRequires:	cmake(KF5XmlGui)
-#BuildRequires:	cmake(KDevPlatform)
-#BuildRequires:	cmake(KDevelop-PG-Qt)
-BuildRequires:	cmake(LLVM)
-BuildRequires:	cmake(Clang)
-BuildRequires:	doxygen
-BuildRequires:	qt5-assistant
-# Not sure why, but building docs wants to translate from CP1250 to UTF-8...
-BuildRequires:	locales-extra-charsets
-# FIXME can be removed when LLVM cmake files stop referencing them
-BuildRequires:	llvm-mlir-tools
-BuildRequires:	llvm-static-devel
-BuildRequires:	llvm-polly-devel
-BuildRequires:	cmake(MLIR)
-BuildRequires:	spirv-llvm-translator
-BuildRequires:	%{_lib}gpuruntime
-BuildRequires:	llvm-bolt
-BuildRequires:	libclc-amdgcn
-BuildRequires:	libclc-nvptx
-BuildRequires:	pkgconfig(libzstd)
-Requires:	kinit
-Requires:	kio
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Gui)
+BuildRequires:	cmake(Qt6PrintSupport)
+BuildRequires:	cmake(Qt6Svg)
+BuildRequires:	cmake(Qt6Test)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	cmake(Qt6Xml)
+BuildRequires:	cmake(KF6Archive)
+BuildRequires:	cmake(KF6Completion)
+BuildRequires:	cmake(KF6Config)
+BuildRequires:	cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6Crash)
+BuildRequires:	cmake(KF6DocTools)
+BuildRequires:	cmake(KF6I18n)
+BuildRequires:	cmake(KF6IconThemes)
+BuildRequires:	cmake(KF6KIO)
+BuildRequires:	cmake(KF6TextEditor)
+BuildRequires:	cmake(KF6WidgetsAddons)
+BuildRequires:	cmake(KF6WindowSystem)
+BuildRequires:	cmake(KF6XmlGui)
+BuildSystem:	cmake
+BuildOption:	-DBUILD_WITH_QT6:BOOL=ON
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+BuildOption:	-DBUILD_APIDOC:BOOL=OFF
+BuildOption:	-DBUILD_QCH:BOOL=OFF
 
 %description
 Umbrello UML Modeller is a UML diagramming tool for KDE.
 
 %files -f %{name}.lang
-%{_bindir}/umbrello5
-%{_bindir}/po2xmi5
-%{_bindir}/xmi2pot5
+%{_bindir}/umbrello6
+%{_bindir}/po2xmi6
+%{_bindir}/xmi2pot6
 %{_datadir}/applications/org.kde.umbrello.desktop
 %{_datadir}/metainfo/org.kde.umbrello.appdata.xml
-%{_datadir}/umbrello5
-%{_iconsdir}/hicolor/*/*/*.*[gz]
-%doc %{_docdir}/qt5/*.qch
+%{_datadir}/umbrello6
+%{_iconsdir}/hicolor/*/*/*
 
 #----------------------------------------------------------------------------
 
-%prep
-%autosetup -p1
-%cmake_kde5 -G Ninja -DBUILD_KF5:BOOL=ON
-
-%build
-%ninja_build -C build
-# FIXME why doesn't ninja do this? It does respect the
-# generated files in the install step...
-cd build
-doxygen Doxyfile.apidoc
-
-%install
-%ninja_install -C build
+%install -a
 %find_lang %{name} --all-name --with-html
