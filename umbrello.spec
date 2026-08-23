@@ -3,7 +3,7 @@
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
 Version:	26.08.0
-Release:	1
+Release:	2
 Group:		Graphical desktop/KDE
 License:	GPLv2+
 Url:		https://www.kde.org
@@ -33,6 +33,8 @@ BuildRequires:	cmake(KF6TextEditor)
 BuildRequires:	cmake(KF6WidgetsAddons)
 BuildRequires:	cmake(KF6WindowSystem)
 BuildRequires:	cmake(KF6XmlGui)
+BuildRequires:	cmake(KDevPlatform)
+BuildRequires:	cmake(KDevelopPGQt)
 BuildSystem:	cmake
 BuildOption:	-DBUILD_WITH_QT6:BOOL=ON
 BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
