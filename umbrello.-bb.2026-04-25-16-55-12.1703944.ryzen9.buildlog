@@ -1,0 +1,8 @@
+warning: Downloading http://download.kde.org/stable/release-service/26.04.0/src/umbrello-26.04.0.tar.xz to /home/bero/abf/umbrello/umbrello-26.04.0.tar.xz
+error: Failed build dependencies:
+	cmake(KF5DocTools) is needed by umbrello-26.04.0-1.znver1
+	cmake(KF5TextEditor) is needed by umbrello-26.04.0-1.znver1
+	qt5-assistant is needed by umbrello-26.04.0-1.znver1
+
+RPM build warnings:
+    Downloading http://download.kde.org/stable/release-service/26.04.0/src/umbrello-26.04.0.tar.xz to /home/bero/abf/umbrello/umbrello-26.04.0.tar.xz
