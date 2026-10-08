@@ -2,7 +2,7 @@
 
 Summary:	UML diagramming tool for KDE
 Name:		umbrello
-Version:	26.08.1
+Version:	26.08.2
 Release:	1
 Group:		Graphical desktop/KDE
 License:	GPLv2+
